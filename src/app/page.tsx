@@ -13,12 +13,11 @@ export default function Home() {
               <Image
                 src="/WriteAway.png"
                 alt="WriteAway logo"
-                className="-ml-16"
                 height={300}
                 width={300}
               />
 
-              <div className="w-64">
+              <div className="max-w-96">
                 WriteAway isn't just a tool that helps you become a better
                 writer. It is a community that provides an audience to solicit
                 feedback or even just a place write daily while building the
