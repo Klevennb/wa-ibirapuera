@@ -1,25 +1,27 @@
-"use client"
+"use client";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import Link from "next/link"
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
 
 interface LoginFormProps extends React.ComponentPropsWithoutRef<"div"> {
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  handleGoogleSignIn: () => void;
 }
 
 export function LoginForm({
   className,
   handleSubmit,
+  handleGoogleSignIn,
   ...props
 }: LoginFormProps) {
   return (
@@ -58,13 +60,17 @@ export function LoginForm({
               <Button type="submit" className="w-full">
                 Login
               </Button>
-              <Button variant="outline" className="w-full">
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={handleGoogleSignIn}
+              >
                 Login with Google
               </Button>
             </div>
             <div className="mt-4 text-center text-sm">
               Don&apos;t have an account?{" "}
-              <Link href='/register' className="underline underline-offset-4">
+              <Link href="/register" className="underline underline-offset-4">
                 Sign up
               </Link>
             </div>
@@ -72,5 +78,5 @@ export function LoginForm({
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
