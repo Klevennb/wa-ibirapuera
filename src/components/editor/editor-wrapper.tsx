@@ -40,19 +40,6 @@ export default function LexicalEditor() {
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="relative w-full max-w-2xl mx-auto bg-white border border-gray-300 shadow-lg rounded-xl p-4">
-        {/* Toolbar */}
-        <div className="flex items-center justify-between border-b pb-2 mb-2">
-          <h2 className="text-lg font-semibold text-gray-700">Lexical Editor</h2>
-          <div className="flex space-x-2">
-            <button className="px-3 py-1 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition">
-              Bold
-            </button>
-            <button className="px-3 py-1 text-sm font-medium text-white bg-gray-500 rounded-lg hover:bg-gray-600 transition">
-              Italic
-            </button>
-          </div>
-        </div>
-
         {/* Editor Content */}
         <div className="relative min-h-[250px] p-4 bg-gray-50 border border-gray-200 rounded-lg">
           <RichTextPlugin
