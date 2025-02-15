@@ -39,40 +39,40 @@ export const eventTypes = {
 
 const pluginsList = [
   {
-    id: 1,
+    id: 1,   //B
     Icon: FormatText,
     event: eventTypes.paragraph,
   },
   {
-    id: 2,
+    id: 2,   //B
     Icon: FormatHeader1,
     event: eventTypes.h1,
   },
   {
-    id: 3,
+    id: 3,   //B
     Icon: FormatHeader2,
     event: eventTypes.h2,
   },
   {
-    id: 4,
+    id: 4,   //B
     Icon: FormatListBulletedIcon,
     event: eventTypes.ul,
   },
 
   {
-    id: 5,
+    id: 5,   //B
     Icon: FormatListNumberedIcon,
     event: eventTypes.ol,
   },
   {
-    id: 6,
+    id: 6,   //B
     Icon: FormatQuoteIcon,
     event: eventTypes.quote,
   },
 
   {
     id: 7,
-    Icon: CodeIcon,
+    Icon: CodeIcon,   //B
     event: eventTypes.formatCode,
   },
   {
@@ -86,7 +86,7 @@ const pluginsList = [
     event: eventTypes.formatRedo,
   },
   {
-    id: 10,
+    id: 10,   //B
     Icon: FormatBoldOutlinedIcon,
     event: eventTypes.formatBold,
   },
@@ -96,18 +96,18 @@ const pluginsList = [
     event: eventTypes.formatItalic,
   },
   {
-    id: 12,
+    id: 12,   //B
     Icon: FormatUnderlinedOutlinedIcon,
     event: eventTypes.formatUnderline,
   },
   {
     id: 13,
-    Icon: ImageIcon,
+    Icon: ImageIcon,   //B
     event: eventTypes.insertImage,
   },
   {
     id: 14,
-    Icon: InsertLinkOutlinedIcon,
+    Icon: InsertLinkOutlinedIcon,  //B
     event: eventTypes.formatInsertLink,
   },
   {

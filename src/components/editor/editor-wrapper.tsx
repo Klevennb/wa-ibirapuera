@@ -9,14 +9,8 @@ import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { EditorState } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import ToolbarPlugin from "./plugins/toolbar";
+import { useEditorContext } from "@/contexts/editor-context";
 // import { EditorTheme } from "./theme"; // Optional for further styling
-
-// Handle editor state changes
-const onChange = (editorState: EditorState) => {
-  editorState.read(() => {
-    console.log(JSON.stringify(editorState.toJSON())); // Log state
-  });
-};
 
 // Auto-focus plugin
 const AutoFocusPlugin = () => {
@@ -38,6 +32,14 @@ const editorConfig = {
 };
 
 export default function LexicalEditor() {
+  const { setEditorState } = useEditorContext();
+
+  const onChange = (editorState: EditorState) => {
+    editorState.read(() => {
+      setEditorState(editorState.toJSON());
+    });
+  };
+
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="relative w-full max-w-2xl mx-auto bg-white border border-gray-300 shadow-lg rounded-xl p-4">
