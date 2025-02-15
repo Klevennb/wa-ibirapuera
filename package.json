@@ -25,7 +25,7 @@
     "@radix-ui/react-slot": "^1.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lexical": "^0.23.1",
+    "lexical": "0.24.0",
     "lucide-react": "^0.471.1",
     "mdi-material-ui": "^7.9.3",
     "next": "15.1.3",
