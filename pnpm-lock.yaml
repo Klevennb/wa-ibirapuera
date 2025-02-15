@@ -57,8 +57,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       lexical:
-        specifier: ^0.23.1
-        version: 0.23.1
+        specifier: 0.24.0
+        version: 0.24.0
       lucide-react:
         specifier: ^0.471.1
         version: 0.471.2(react@19.0.0)
@@ -1859,9 +1859,6 @@ packages:
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
-
-  lexical@0.23.1:
-    resolution: {integrity: sha512-iuS72HcAYUemsCRQCm4XZzkGhZb8a9KagW+ee2TFfkkf9f3ZpUYSrobMpjYVZRkgMOx7Zk5VCPMxm1nouJTfnQ==}
 
   lexical@0.24.0:
     resolution: {integrity: sha512-0qEyd7pl6v48JZhrd1+LfP4ZGSYJ8RSfk75RaPyTWNibi/oA0Ob0Fqb/Hl1hqMLzAM9shgZvY6HXOV0iW/HfiQ==}
@@ -4748,8 +4745,6 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
-
-  lexical@0.23.1: {}
 
   lexical@0.24.0: {}
 
