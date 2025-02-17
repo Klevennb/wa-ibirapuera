@@ -7,7 +7,7 @@ export default function Home() {
     <div className="bg-gradient-to-br from-[#654321] to-transparent grid grid-rows-[1fr_auto] items-center justify-items-center min-h-screen px-8 gap-16 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 items-center sm:items-start w-full flex-grow">
         {/* Content Section */}
-        <div className="bg-gray-100 flex justify-center w-full rounded-md pb-16">
+        <div className="bg-gray-100 shadow-lg flex justify-center w-full rounded-md pb-16">
           <div className="flex flex-col md:flex-row mt-24 items-center md:items-start space-y-4 md:space-y-0 md:space-x-24 max-w-4xl">
             <div className="flex flex-col z-10">
               <Image
@@ -24,7 +24,7 @@ export default function Home() {
                 habits of a succesful writer. Join now and see what you can
                 create.
               </div>
-              <Button>
+              <Button variant={'writeAway'}>
                 <Link href={"/login"}>Get Started</Link>{" "}
               </Button>
             </div>
