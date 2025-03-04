@@ -18,9 +18,9 @@ export default function Editor (props: EditorProps) {
 
 
     return(
-        <div className='flex-col'>
+        <div className='flex flex-col items-center gap-y-3'>
             <EditorComponent/>
             <Button variant={'writeAway'} onClick={handleSave}>Save</Button>
         </div>
-    )
+    )   
 }
