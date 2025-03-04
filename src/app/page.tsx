@@ -4,7 +4,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-br from-[#654321] to-transparent grid grid-rows-[1fr_auto] items-center justify-items-center min-h-screen px-8 gap-16 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[1fr_auto] items-center justify-items-center min-h-screen px-8 gap-16 font-[family-name:var(--font-geist-sans)]">
+      
       <main className="flex flex-col gap-8 items-center sm:items-start w-full flex-grow">
         {/* Content Section */}
         <div className="bg-gray-100 shadow-lg flex justify-center w-full rounded-md pb-16">
