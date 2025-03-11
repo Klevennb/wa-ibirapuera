@@ -13,6 +13,8 @@ const Title: React.FC<TitleProps> = (props) => {
   const { isFresh, title, onChange, onEdit } = props;
   const [isVisible, setIsVisible] = useState(true);
 
+  // TODO: Refine title fade logic to include focus
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
@@ -30,6 +32,12 @@ const Title: React.FC<TitleProps> = (props) => {
       setIsVisible(false);
     }, 2000);
   };
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(e);
+    setIsVisible(true);
+    handleMouseLeave();
+  }
   return (
     <div
       className={`flex justify-center items-center h-full transition-opacity duration-500 ${
@@ -43,7 +51,7 @@ const Title: React.FC<TitleProps> = (props) => {
         <input
           type="text"
           value={isFresh ? "" : title}
-          onChange={onChange}
+          onChange={handleTitleChange}
           className={`ml-4 p-2 border ${
             isFresh ? "border-green-500" : "border-gray-300"
           } rounded  !opacity-100`}
