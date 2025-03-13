@@ -10,6 +10,7 @@ import { EditorState } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import ToolbarPlugin from "./plugins/toolbar";
 import { useEditorContext } from "@/contexts/editor-context";
+import WordCountPlugin from "./plugins/word-count";
 // import { EditorTheme } from "./theme"; // Optional for further styling
 
 // Auto-focus plugin
@@ -61,6 +62,7 @@ export default function LexicalEditor() {
           <OnChangePlugin onChange={onChange} />
           <HistoryPlugin />
           <AutoFocusPlugin />
+          <WordCountPlugin />
         </div>
       </div>
     </LexicalComposer>
