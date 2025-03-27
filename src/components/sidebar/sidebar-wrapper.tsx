@@ -10,7 +10,7 @@ export default function SidebarWrapper({ children }: { children: React.ReactNode
   const showSidebar = ["/dashboard", "/editor", "/profile"].includes(pathname);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen">
       {showSidebar && <Sidebar />}
       <main className="flex-1 p-4">{children}</main>
     </div>
