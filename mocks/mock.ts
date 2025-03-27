@@ -15,7 +15,7 @@ type MockEntry = {
     wordCount: number
 }
 
-type MockUser = {
+export type MockUser = {
     id: UUID
     username: string
     bio: string
@@ -86,7 +86,7 @@ const mockPrompt: MockPrompt = {
     visible: true
 };
 
-const mockUser: MockUser = {
+export const mockUser: MockUser = {
     id: '123e4567-e89b-12d3-a456-426614174005' as UUID,
     username: 'sampleUser',
     bio: 'This is a sample bio.',
