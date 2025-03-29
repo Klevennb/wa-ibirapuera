@@ -1,6 +1,7 @@
 import React from "react";
 import { MockUser, mockUser } from "../../../mocks/mock";
 import SidebarLinks from "./sidebar-links";
+import SidebarFooter from "./siderbar-footer";
 
 interface SidebarProps {
   user?: MockUser;
@@ -31,7 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user = mockUser }) => {
       <div className="flex-grow">
         <SidebarLinks />
       </div>
-      {/* TODO: Add settings bar */}
+      <SidebarFooter />
     </div>
   );
 };
