@@ -77,7 +77,7 @@ export function RegisterForm({
               >
                 Register
               </Button>
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full" onClick={handleGoogleRegister}>
                 Register with Google
               </Button>
             </div>

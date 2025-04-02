@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="grid grid-rows-[1fr_auto] items-center justify-items-center min-h-screen px-8 gap-16 font-[family-name:var(--font-geist-sans)]">
-      
+
       <main className="flex flex-col gap-8 items-center sm:items-start w-full flex-grow">
         {/* Content Section */}
         <div className="bg-gray-100 shadow-lg flex justify-center w-full rounded-md pb-16">
@@ -19,7 +19,7 @@ export default function Home() {
               />
 
               <div className="max-w-96">
-                WriteAway isn't just a tool that helps you become a better
+                WriteAway is not just a tool that helps you become a better
                 writer. It is a community that provides an audience to solicit
                 feedback or even just a place write daily while building the
                 habits of a succesful writer. Join now and see what you can

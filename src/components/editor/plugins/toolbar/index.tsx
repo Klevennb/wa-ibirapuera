@@ -6,7 +6,7 @@ const LexicalEditorTopBar = () => {
   const { onClick, selectedEventTypes, blockType } =
     useOnClickListener();
 
-  const isIconSelected = (plugin: any) =>
+  const isIconSelected = (plugin: { event: string }) =>
     selectedEventTypes.includes(plugin.event) ||
     blockType.includes(plugin.event);
 
@@ -15,10 +15,10 @@ const LexicalEditorTopBar = () => {
 
     >
       {toolbarIconsList.map((plugin) => (
-        <div 
+        <div
           key={plugin.id}
           className="cursor-pointer"
-        
+
         >
           {
             <plugin.Icon
