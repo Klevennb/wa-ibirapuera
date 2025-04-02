@@ -14,29 +14,34 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useRef } from "react";
 
-interface RegisterFormProps extends React.ComponentPropsWithoutRef<"div"> {
-  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-  handleGoogleRegister: () => void;
-}
+// interface RegisterFormProps extends React.ComponentPropsWithoutRef<"div"> {
+//   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+//   handleGoogleRegister: () => void;
+// }
 
-export function RegisterForm({
-  className,
-  handleSubmit,
-  handleGoogleRegister,
-  ...props
-}: RegisterFormProps) {
+// TODO: Uncomment when there is real registration
+// export function RegisterForm({
+//   className,
+//   handleSubmit,
+//   handleGoogleRegister,
+//   ...props
+// }: RegisterFormProps) {
+
+export function RegisterForm() {
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
+    // <div className={cn("flex flex-col gap-6", className)} {...props}>
+    <div className={cn("flex flex-col gap-6")}>
+
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Register</CardTitle>
           <CardDescription>Enter your email</CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit}>
+          <form >
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
@@ -77,7 +82,9 @@ export function RegisterForm({
               >
                 Register
               </Button>
-              <Button variant="outline" className="w-full" onClick={handleGoogleRegister}>
+              {/* <Button variant="outline" className="w-full" onClick={handleGoogleRegister}> */}
+
+              <Button variant="outline" className="w-full">
                 Register with Google
               </Button>
             </div>
