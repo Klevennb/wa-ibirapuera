@@ -6,12 +6,8 @@ import { Button } from "@/components/ui/button";
 import { useEditorContext } from "@/contexts/editor-context";
 import { useState } from "react";
 
-interface EditorProps {
-  isFresh: boolean;
-}
-
-export default function Editor(props: EditorProps) {
-  const { isFresh } = props;
+export default function Editor() {
+  const isFresh = true; // TODO: check if the editor is fresh
   const { editorState } = useEditorContext();
   const [title, setTitle] = useState("");
 
