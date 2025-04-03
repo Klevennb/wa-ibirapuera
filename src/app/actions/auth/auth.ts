@@ -11,8 +11,6 @@ import { setSessionCookie } from "@/app/actions/auth/cookie"
 
 const signUp = async (formData: FormData) => {
   const formDataRaw = {
-    firstName: formData.get("firstName") as string,
-    lastName: formData.get("lastName") as string,
     email: formData.get("email") as string,
     password: formData.get("password") as string,
     confirmPassword: formData.get("confirmPassword") as string,
@@ -27,8 +25,6 @@ const signUp = async (formData: FormData) => {
 
     const user = await prisma.user.create({
       data: {
-        firstName: formDataRaw.firstName,
-        lastName: formDataRaw.lastName,
         email: formDataRaw.email,
         passwordHash,
       },
