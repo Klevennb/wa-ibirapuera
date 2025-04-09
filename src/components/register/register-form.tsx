@@ -1,6 +1,6 @@
 "use client";
 
-  import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -11,11 +11,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import { signUp } from "@/app/actions/auth/auth";
+import { SignUpFields } from "@/types/auth";
 
 export function RegisterForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<SignUpFields>({
     email: "",
     password: "",
     confirmPassword: "",
@@ -35,7 +36,7 @@ export function RegisterForm() {
     }
     setError("");
     
-    // signUp(new FormData(event.currentTarget))
+    signUp(formData)
     console.log("Form submitted", formData);
   };
 

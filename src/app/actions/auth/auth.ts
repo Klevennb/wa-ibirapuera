@@ -8,24 +8,19 @@ import {
   createSession,
 } from "@/app/actions/auth/session"
 import { setSessionCookie } from "@/app/actions/auth/cookie"
+import { SignUpFields } from "@/types/auth"
 
-const signUp = async (formData: FormData) => {
-  const formDataRaw = {
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-    confirmPassword: formData.get("confirmPassword") as string,
-  }
-
-  if (formDataRaw.password !== formDataRaw.confirmPassword) {
+const signUp = async (formData: SignUpFields) => {
+  if (formData.password !== formData.confirmPassword) {
     throw new Error("Passwords do not match")
   }
 
   try {
-    const passwordHash = await hashPassword(formDataRaw.password)
+    const passwordHash = await hashPassword(formData.password)
 
     const user = await prisma.user.create({
       data: {
-        email: formDataRaw.email,
+        email: formData.email,
         passwordHash,
       },
     })
