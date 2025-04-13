@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
-import { hashPassword } from "@/app/actions/auth/password"
+import { hashPassword, verifyPasswordHash } from "@/app/actions/auth/password"
 import {
   generateRandomSessionToken,
   createSession,
@@ -35,5 +35,28 @@ const signUp = async (formData: SignUpFields) => {
 
   redirect("/dashboard")
 }
+const login = async (formData: { email: string; password: string }) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { email: formData.email },
+    })
 
-export { signUp }
+    if (!user) {
+      throw new Error("Invalid email or password")
+    }
+
+    const isPasswordValid = verifyPasswordHash(user.passwordHash, formData.password)
+
+    if (!isPasswordValid) {
+      throw new Error("Invalid email or password")
+    }
+
+    console.log("User found:", user)
+  } catch (error) {
+    console.error(error)
+    throw new Error("Login failed")
+  }
+
+  redirect("/dashboard")
+}
+export { signUp, login }

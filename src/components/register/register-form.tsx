@@ -37,7 +37,6 @@ export function RegisterForm() {
     setError("");
     
     signUp(formData)
-    console.log("Form submitted", formData);
   };
 
   const registerWithGoogle = () => {return console.log("Register with Google")};  

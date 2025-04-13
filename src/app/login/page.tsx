@@ -3,11 +3,15 @@
 import { LoginForm } from "@/components/login/login-form";
 import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import { login } from "../actions/auth/auth";
 export default function Login() {
   const router = useRouter();
   const handleSubmit = (data: FormEvent<HTMLFormElement>) => {
     data.preventDefault()
-    console.log('Form Data: ', data)
+    const formData = new FormData(data.target as HTMLFormElement);
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+    login({ email, password})
   }
 
   const loginWithGoogle = () => {
