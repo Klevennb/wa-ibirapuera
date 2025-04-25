@@ -5,9 +5,10 @@ import SidebarFooter from "./siderbar-footer";
 
 interface SidebarProps {
   user?: MockUser;
+  logout: () => void
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ user = mockUser }) => {
+const Sidebar: React.FC<SidebarProps> = ({ user = mockUser, logout }) => {
   return (
     <div className="h-full w-64 flex flex-col">
       <div className="bg-gray-800 text-white rounded-sm">
@@ -32,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user = mockUser }) => {
       <div className="flex-grow">
         <SidebarLinks />
       </div>
-      <SidebarFooter />
+      <SidebarFooter logout={logout} />
     </div>
   );
 };

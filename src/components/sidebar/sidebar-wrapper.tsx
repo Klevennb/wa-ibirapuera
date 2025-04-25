@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Sidebar from "./sidebar";
+import { logout } from "@/app/actions/auth/logout";
 
 export default function SidebarWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -11,7 +12,7 @@ export default function SidebarWrapper({ children }: { children: React.ReactNode
 
   return (
     <div className="flex h-screen">
-      {showSidebar && <Sidebar />}
+      {showSidebar && <Sidebar logout={logout} />}
       <main className="flex-1 p-4">{children}</main>
     </div>
   );
