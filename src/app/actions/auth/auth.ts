@@ -21,6 +21,8 @@ const signUp = async (formData: SignUpFields) => {
     const user = await prisma.user.create({
       data: {
         email: formData.email,
+        firstName: "",
+        lastName: "",
         passwordHash,
       },
     })
@@ -35,6 +37,7 @@ const signUp = async (formData: SignUpFields) => {
 
   redirect("/dashboard")
 }
+
 const login = async (formData: { email: string; password: string }) => {
   try {
     const user = await prisma.user.findUnique({
@@ -45,18 +48,24 @@ const login = async (formData: { email: string; password: string }) => {
       throw new Error("Invalid email or password")
     }
 
-    const isPasswordValid = verifyPasswordHash(user.passwordHash, formData.password)
+    const isPasswordValid = await verifyPasswordHash(
+      user.passwordHash,
+      formData.password
+    )
 
     if (!isPasswordValid) {
       throw new Error("Invalid email or password")
     }
 
-    console.log("User found:", user)
+    const sessionToken = generateRandomSessionToken()
+    const session = await createSession(sessionToken, user.id)
+    await setSessionCookie(sessionToken, session.expiresAt)
+
+    redirect("/dashboard")
   } catch (error) {
     console.error(error)
-    throw new Error("Login failed")
+    throw error // Re-throw the error to be handled by the client
   }
-
-  redirect("/dashboard")
 }
+
 export { signUp, login }

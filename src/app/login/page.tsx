@@ -2,20 +2,31 @@
 
 import { LoginForm } from "@/components/login/login-form";
 import { FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { login } from "../actions/auth/auth";
+
 export default function Login() {
   const router = useRouter();
-  const handleSubmit = (data: FormEvent<HTMLFormElement>) => {
-    data.preventDefault()
+  const searchParams = useSearchParams();
+  const from = searchParams.get('from') || '/dashboard';
+
+  const handleSubmit = async (data: FormEvent<HTMLFormElement>) => {
+    data.preventDefault();
     const formData = new FormData(data.target as HTMLFormElement);
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
-    login({ email, password})
+
+    try {
+      await login({ email, password });
+      // If login is successful, the server action will handle the redirect
+    } catch (error) {
+      console.error('Login failed:', error);
+      // You might want to show an error message to the user here
+    }
   }
 
   const loginWithGoogle = () => {
-    router.push('/dashboard')
+    router.push(from);
   }
 
   return (
