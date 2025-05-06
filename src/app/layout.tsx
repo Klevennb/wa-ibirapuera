@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { EditorProvider } from "@/contexts/editor-context";
 import SidebarWrapper from "@/components/sidebar/sidebar-wrapper";
+import { UserHydrator } from "@/components/user-hydrator";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         <EditorProvider>
           <SidebarWrapper>{children}</SidebarWrapper>
         </EditorProvider>
+        <UserHydrator />
       </body>
     </html>
   );
