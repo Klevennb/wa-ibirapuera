@@ -61,7 +61,7 @@ const login = async (formData: { email: string; password: string }) => {
     const session = await createSession(sessionToken, user.id)
     await setSessionCookie(sessionToken, session.expiresAt)
 
-    redirect("/dashboard")
+  return { success: true };
   } catch (error) {
     console.error(error)
     throw error // Re-throw the error to be handled by the client
