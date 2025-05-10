@@ -1,7 +1,14 @@
 import { RandomQuote } from "@/components/dashboard/quotes";
 import { StreakBanner } from "@/components/dashboard/streak-banner";
+import { getAuth } from "../actions/auth/cookie";
+import { redirect } from "next/navigation";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+    const { user } = await getAuth();
+
+    if (!user) {
+      redirect('/login');
+    }
     return (
         <>
             <div className="m-12">

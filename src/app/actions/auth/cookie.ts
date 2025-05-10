@@ -47,3 +47,19 @@ export const getAuth = cache( async() => {
   
     return validateSession(sessionToken);
   });
+
+  export const getUser = cache( async() => {
+    const sessionToken =
+      (await cookies()).get(SESSION_COOKIE_NAME)?.value ?? null;
+  
+    if (!sessionToken) {
+      return { session: null, user: null };
+    }
+    const { user } = await validateSession(sessionToken);
+    
+    if (!user) {
+      return { user: null };
+    } else {
+      return { id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName }; 
+    }
+  });

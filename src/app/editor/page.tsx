@@ -5,8 +5,16 @@ import Title from "@/components/editor/title";
 import { Button } from "@/components/ui/button";
 import { useEditorContext } from "@/contexts/editor-context";
 import { useState } from "react";
+import { getAuth } from "../actions/auth/cookie";
+import { redirect } from "next/navigation";
 
-export default function Editor() {
+export default async function Editor() {
+    const { user } = await getAuth();
+
+    if (!user) {
+      redirect('/login');
+    }
+
   const isFresh = true; // TODO: check if the editor is fresh
   const { editorState } = useEditorContext();
   const [title, setTitle] = useState("");

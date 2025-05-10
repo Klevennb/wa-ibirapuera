@@ -2,7 +2,7 @@
 
 import { LoginForm } from "@/components/login/login-form";
 import { FormEvent } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { redirect, useRouter, useSearchParams } from "next/navigation";
 import { login } from "../actions/auth/auth";
 
 export default function Login() {
@@ -17,8 +17,12 @@ export default function Login() {
     const password = formData.get('password') as string;
 
     try {
-      await login({ email, password });
-      // If login is successful, the server action will handle the redirect
+      const status = await login({ email, password });
+      console.log("Login status:", status);
+      
+      if (status.success) {
+        router.push('/dashboard')
+      } 
     } catch (error) {
       console.error('Login failed:', error);
       // You might want to show an error message to the user here
