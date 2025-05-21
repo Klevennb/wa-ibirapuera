@@ -19,11 +19,11 @@ export const StreakBanner: React.FC<StreakBannerProps> = ({
           <p>Current Streak: {currentStreak} days!</p>
         ) : (
           <p>
-            Current Streak: {currentStreak} days! Don't forget to add to it!
+            Current Streak: {currentStreak} days! Don&apos;t forget to add to it!
           </p>
         )
       ) : (
-        <p>You don't have a streak yet! Let's write!</p>
+        <p>You don&apos;t have a streak yet!Let&apos;s write!</p>
       )}
     </div>
   );
