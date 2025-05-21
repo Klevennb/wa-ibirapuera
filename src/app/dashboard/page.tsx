@@ -1,3 +1,4 @@
+import { NewUserSection } from "@/components/dashboard/new-user-section";
 import { RandomQuote } from "@/components/dashboard/quotes";
 import { StreakBanner } from "@/components/dashboard/streak-banner";
 import { getAuth } from "../actions/auth/cookie";
@@ -11,12 +12,13 @@ export default async function Dashboard() {
     }
     return (
         <>
-            <div className="m-12">
+            <div className="m-12 flex flex-row">
                 <div className="flex flex-col items-center justify-center">
-                  <RandomQuote />  
-                  <StreakBanner currentStreak={0} hasWritttenToday={false}/>
+                    <RandomQuote />
+                    <StreakBanner currentStreak={0} hasWritttenToday={false} />
                 </div>
-                
+                <NewUserSection />
+
             </div>
         </>
     )
